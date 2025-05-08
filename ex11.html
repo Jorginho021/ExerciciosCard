@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Caixa Eletrônico</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(300deg,#0d3b66,#296d9b, #86bbd8);;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício 11: Simulador de Caixa Eletrônico</h1>
+        <input type="number" id="valor" class="input" placeholder="Digite o valor desejado">
+        <br>
+        <button onclick="simularCaixa()" class="btn">Simular</button>
+        <br>
+        <div id="resultado" class="result"></div>
+        <br>
+        <a href="../index.html" class="btn">Voltar para a Página Principal</a>
+      </div>
+      
+      <script>
+        function simularCaixa() {
+          let valor = parseInt(document.getElementById("valor").value);
+          let resultado = document.getElementById("resultado");
+      
+          if (isNaN(valor) || valor <= 0) {
+            resultado.innerHTML = "Por favor, insira um valor válido.";
+            return;
+          }
+      
+          let notas = [
+            { valor: 100, quantidade: 0 },
+            { valor: 50, quantidade: 0 },
+            { valor: 10, quantidade: 0 },
+            { valor: 1, quantidade: 0 },
+          ];
+      
+          for (let nota of notas) {
+            nota.quantidade = Math.floor(valor / nota.valor);
+            valor %= nota.valor;
+          }
+      
+          let resultadoHTML = "";
+          for (let nota of notas) {
+            if (nota.quantidade > 0) {
+              resultadoHTML += `Notas de R$${nota.valor}: ${nota.quantidade} <br>`;
+            }
+          }
+      
+          resultado.innerHTML = resultadoHTML;
+        }
+      </script>
+      
+      
+</body>
+</html>

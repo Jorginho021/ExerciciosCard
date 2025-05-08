@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palavras e Letras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(300deg,#0d3b66,#296d9b, #86bbd8);;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício 16: Contador de Palavras e Letras</h1>
+        <textarea id="texto" class="input" rows="6" placeholder="Digite o texto aqui..."></textarea>
+        <br>
+        <button onclick="contar()" class="btn">Contar</button>
+        <br>
+        <div id="resultado" class="resultado"></div>
+        <br>
+        <a href="../index.html" class="btn" style="text-decoration: none;">Voltar para a Página Principal</a>
+      </div>
+      
+      <script>
+        function contar() {
+          let texto = document.getElementById("texto").value;
+          let palavras = texto.trim().split(/\s+/).filter(Boolean).length;
+          let letras = texto.replace(/\s+/g, '').length;
+          document.getElementById("resultado").innerHTML = `Número de palavras: ${palavras} <br> Número de letras: ${letras}`;
+        }
+      </script>
+      
+</body>
+</html>

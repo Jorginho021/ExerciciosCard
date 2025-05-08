@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquete com Votos</title>
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(300deg,#0d3b66,#296d9b, #86bbd8);;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container">
+            <h1>Exercício 15: Enquete com Votos</h1>
+            <div>
+              <input type="radio" name="opcao" value="1"> Opção 1
+              <input type="radio" name="opcao" value="2"> Opção 2
+              <input type="radio" name="opcao" value="3"> Opção 3
+            </div>
+            <button onclick="votar()" class="btn">Votar</button>
+            <div id="resultado" class="resultado"></div>
+            <br>
+            <a href="../index.html" class="btn" style="text-decoration: none;">Voltar para a Página Principal</a>
+          </div>
+          
+          <script>
+            let votos = { 1: 0, 2: 0, 3: 0 };
+      
+      function votar() {
+        let opcaoSelecionada = document.querySelector('input[name="opcao"]:checked');
+    
+        if (!opcaoSelecionada) {
+          document.getElementById("resultado").innerText = "Por favor, selecione uma opção.";
+          return;
+        }
+    
+        let opcao = parseInt(opcaoSelecionada.value);
+        votos[opcao]++;
+    
+        let totalVotos = votos[1] + votos[2] + votos[3];
+    
+        if (totalVotos === 1) {
+          document.getElementById("resultado").innerHTML = `Voto computado! Total de votos: ${totalVotos}`;
+        } else {
+          let resultado = `Total de votos: ${totalVotos}<br>
+            Opção 1: ${votos[1]} votos (${(votos[1] / totalVotos * 100).toFixed(2)}%)<br>
+            Opção 2: ${votos[2]} votos (${(votos[2] / totalVotos * 100).toFixed(2)}%)<br>
+            Opção 3: ${votos[3]} votos (${(votos[3] / totalVotos * 100).toFixed(2)}%)<br>
+          `;
+          document.getElementById("resultado").innerHTML = resultado;
+        }
+      }
+          </script>
+      
+</body>
+</html>

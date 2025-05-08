@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par ou Ímpar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(300deg,#0d3b66,#296d9b, #86bbd8);;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+            
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício: Jogo de Adivinhação</h1>
+        <input type="number" id="palpite" class="input" placeholder="Adivinhe um número (1-100)">
+        <button onclick="adivinhar()" class="btn">Adivinhar</button>
+        <p id="resultado"></p>
+        <a href="../index.html" class="btn">Voltar para a Página Principal</a>
+      </div>
+      
+      <script>
+        let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        let tentativas = 0;
+      
+        function adivinhar() {
+          let palpite = parseInt(document.getElementById("palpite").value);
+          let resultado = document.getElementById("resultado");
+      
+          if (isNaN(palpite) || palpite < 1 || palpite > 100) {
+            resultado.innerText = "Por favor, insira um número entre 1 e 100.";
+            return;
+          }
+      
+          tentativas++;
+      
+          if (palpite === numeroAleatorio) {
+            resultado.innerText = `Parabéns! Você acertou em ${tentativas} tentativas.`;
+            numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+            tentativas = 0;
+          } else if (palpite < numeroAleatorio) {
+            resultado.innerText = "O número é maior. Tente novamente.";
+          } else {
+            resultado.innerText = "O número é menor. Tente novamente.";
+          }
+        }
+      </script>
+</body>
+</html>
