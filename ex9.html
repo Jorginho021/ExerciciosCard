@@ -7,35 +7,35 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(300deg, #0d3b66, #296d9b, #86bbd8);
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #000; /* Fundo preto */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
+
         .container {
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.5);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #1c1c1c; /* Fundo escuro para destacar */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
+
         .semaforo {
-      width: 100px;
-      height: 300px;
-      background-color: #333;
-      border-radius: 30px;
-      margin: 20px auto;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-    }
-        
+            width: 100px;
+            height: 300px;
+            background-color: #333;
+            border-radius: 30px;
+            margin: 20px auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .luz {
             width: 50px;
             height: 50px;
@@ -43,12 +43,7 @@
             margin: 10px 0;
             background-color: #ccc;
         }
-        .input {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+
         .btn {
             padding: 10px 20px;
             background-color: #3498db;
@@ -56,8 +51,10 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin: 5px;
             transition: background-color 0.3s;
         }
+
         .btn:hover {
             background-color: #2980b9;
         }
@@ -65,8 +62,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Exercício 9: Simulador de Semáforo</h1>
-        <div class="semáforo">
+        <h1 style="color: white;">Exercício 9: Simulador de Semáforo</h1>
+        <div class="semaforo">
             <div id="vermelho" class="luz"></div>
             <div id="amarelo" class="luz"></div>
             <div id="verde" class="luz"></div>
@@ -78,11 +75,21 @@
     </div>
 
     <script>
-        function mudarSemaforo(cor) {
-            document.getElementById("vermelho").style.backgroundColor = (cor === 'vermelho') ? 'red' : '#ccc';
-            document.getElementById("amarelo").style.backgroundColor = (cor === 'amarelo') ? 'yellow' : '#ccc';
-            document.getElementById("verde").style.backgroundColor = (cor === 'verde') ? 'green' : '#ccc';
-        }
+     function mudarSemaforo(cor) {
+    let semaforo = document.getElementById("semaforo");
+
+    if (cor === "vermelho") {
+        semaforo.style.backgroundColor = "red";
+        semaforo.innerText = "Vermelho - Pare!";
+    } else if (cor === "amarelo") {
+        semaforo.style.backgroundColor = "yellow";
+        semaforo.innerText = "Amarelo - Atenção!";
+    } else if (cor === "verde") {
+        semaforo.style.backgroundColor = "green";
+        semaforo.innerText = "Verde - Pode ir!";
+    }
+}
+   
     </script>
 </body>
 </html>
