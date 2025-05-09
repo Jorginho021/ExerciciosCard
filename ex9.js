@@ -1,14 +1,16 @@
-function mudarSemaforo(cor) {
-    let semaforo = document.getElementById("semaforo");
 
-    if (cor === "vermelho") {
-        semaforo.style.backgroundColor = "red";
-        semaforo.innerText = "Vermelho - Pare!";
-    } else if (cor === "amarelo") {
-        semaforo.style.backgroundColor = "yellow";
-        semaforo.innerText = "Amarelo - Atenção!";
-    } else if (cor === "verde") {
-        semaforo.style.backgroundColor = "green";
-        semaforo.innerText = "Verde - Pode ir!";
+function mudarCor(cor) {
+  
+    document.getElementById('redLight').style.backgroundColor = 'transparent';
+    document.getElementById('yellowLight').style.backgroundColor = 'transparent';
+    document.getElementById('greenLight').style.backgroundColor = 'transparent';
+  
+   
+    if (cor === 'red') {
+      document.getElementById('redLight').style.backgroundColor = '#e74c3c'; // Vermelho
+    } else if (cor === 'yellow') {
+      document.getElementById('yellowLight').style.backgroundColor = '#f39c12'; // Amarelo
+    } else if (cor === 'green') {
+      document.getElementById('greenLight').style.backgroundColor = '#2ecc71'; // Verde
     }
-}
+  }
