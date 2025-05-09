@@ -1,14 +1,5 @@
 function mudarSemaforo(cor) {
-    let semaforo = document.getElementById("semaforo");
-
-    if (cor === "vermelho") {
-        semaforo.style.backgroundColor = "red";
-        semaforo.innerText = "Vermelho - Pare!";
-    } else if (cor === "amarelo") {
-        semaforo.style.backgroundColor = "yellow";
-        semaforo.innerText = "Amarelo - Atenção!";
-    } else if (cor === "verde") {
-        semaforo.style.backgroundColor = "green";
-        semaforo.innerText = "Verde - Pode ir!";
-    }
+    document.getElementById("vermelho").style.backgroundColor = (cor === 'vermelho') ? 'red' : '#ccc';
+    document.getElementById("amarelo").style.backgroundColor = (cor === 'amarelo') ? 'yellow' : '#ccc';
+    document.getElementById("verde").style.backgroundColor = (cor === 'verde') ? 'green' : '#ccc';
 }
