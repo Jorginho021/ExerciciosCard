@@ -1,4 +1,3 @@
-
 function mudarCor(cor) {
   
     document.getElementById('redLight').style.backgroundColor = 'transparent';
