@@ -39,4 +39,4 @@ function exibirRelogio() {
 }
 
 
-exibirRelogio();
+
