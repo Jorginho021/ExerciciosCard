@@ -27,3 +27,16 @@ function formatarTempo(segundos) {
     let segundosRestantes = segundos % 60;
     return `${minutos < 10 ? '0' : ''}${minutos}:${segundosRestantes < 10 ? '0' : ''}${segundosRestantes}`;
 }
+// Função para mostrar o relógio atual
+function exibirRelogio() {
+  setInterval(function() {
+    const now = new Date();
+    const horas = formatarTempo(now.getHours());
+    const minutos = formatarTempo(now.getMinutes());
+    const segundos = formatarTempo(now.getSeconds());
+   
+  }, 1000);
+}
+
+
+exibirRelogio();
